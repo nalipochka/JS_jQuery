@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #list {
+            width: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+
+        }
+
+        #list>p {
+            width: 300px;
+            margin: 10px auto;
+            padding: 15px 0;
+
+        }
+
+        #mainDiv {
+            margin: 0 auto;
+            text-align: center;
+            background-color: bisque;
+            padding: 30px;
+        }
+
+        #listBtn {
+            display: flex;
+            justify-content: center;
+        }
+        #listBtn>*{
+            margin: 10px;
+        }
+        #listBtn>button{
+            width: 60px;
+        }
+        .red{
+            background-color: rgb(247, 87, 87);
+        }
+        .green{
+            background-color: rgb(23, 160, 4);
+        }
+        .yellow{
+            background-color: rgb(243, 239, 6);
+        }
+        .orange{
+            background-color: rgb(247, 140, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainDiv">
+
+
+        <h1>Fruits</h1>
+
+
+        <div id="listBtn">
+            <p>Select color:</p>
+            <button class="red">red</button>
+            <button class="green">green</button>
+            <button class="orange">orange</button>
+            <button class="yellow">yellow</button>
+        </div>
+
+
+        <div id="list">
+            <p class="red">apple</p>
+            <p class="green">pear</p>
+            <p class="orange">orange</p>
+            <p class="red">mango</p>
+            <p class="orange">mandarin</p>
+            <p class="yellow">pineapple</p>
+            <p class="green">avocado</p>
+            <p class="red">red peper</p>
+            <p class="green">green peper</p>
+        </div>
+    </div>
+
+
+    <script src="jquery-3.6.3.min.js"></script>
+    <script type="text/javascript">
+        $(()=>{
+            $(".red").click(function() {
+                $(".green").css("box-shadow", "none")
+                $(".orange").css("box-shadow", "none")
+                $(".yellow").css("box-shadow", "none")
+                $(".red").css("box-shadow", "3px 3px 20px 5px black")
+            })
+
+            $(".green").click(function() {
+                $(".green").css("box-shadow", "3px 3px 20px 5px black")
+                $(".orange").css("box-shadow", "none")
+                $(".yellow").css("box-shadow", "none")
+                $(".red").css("box-shadow", "none")
+            })
+
+            $(".yellow").click(function() {
+                $(".green").css("box-shadow", "none")
+                $(".orange").css("box-shadow", "none")
+                $(".yellow").css("box-shadow", "3px 3px 20px 5px black")
+                $(".red").css("box-shadow", "none")
+            })
+
+            $(".orange").click(function() {
+                $(".green").css("box-shadow", "none")
+                $(".orange").css("box-shadow", "3px 3px 20px 5px black")
+                $(".yellow").css("box-shadow", "none")
+                $(".red").css("box-shadow", "none")
+            })
+        })
+    </script>
+</body>
+
+</html>
