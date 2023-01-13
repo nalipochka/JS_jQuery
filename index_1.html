@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        body {
             background-image: url("location.jpg");
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        img{
+
+        img {
             position: absolute;
         }
     </style>
 </head>
+
 <body>
     <img id="witcher" src="sticker.png" width="200px">
     <script src="jquery-3.6.3.js"></script>
     <script type="text/javascript">
-        $(()=>{
-            $("html").mousemove(function(e){
-                $("#witcher").css("left", `${e.pageX}px`);
-                $("#witcher").css("top", `${e.pageY}px`);
-                //не выходить за пределы экрана???????????
+        $(() => {
+            $("html").mousemove(function (e) {
+                let height = $('#witcher').css('height').replace('px', '');
+                let width = $('#witcher').css('width').replace('px', '');
+                let x = e.pageX < (window.innerWidth - width) ? event.pageX : window.innerWidth - width;
+                let y = e.pageY < (window.innerHeight - height) ? event.pageY : window.innerHeight - height;
+                $('#witcher').css({ 'left': x, 'top': y });
+                // $("#witcher").css("left", `${e.pageX}px`);
+                // $("#witcher").css("top", `${e.pageY}px`);
             })
         });
     </script>
 </body>
+
 </html>
